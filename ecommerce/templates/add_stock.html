@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<h1>add stock</h1>
+<form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+  <label class="form-label">ADD no of Stock</label>
+  <input type="number" class="form-control" name="s" value="{{pro.stock}}" placeholder="enter the stcock">
+</div>
+
+
+   <div class="mb-3">
+       <input type="submit" value="ADD">
+   </div>
+
+</form>
+
+
+
+
+
+{% endblock %}
