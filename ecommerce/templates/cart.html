@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5 p-3" style="margin-bottom:100px;">
+<div class="row">
+
+        <h2 class="text-center fw-bold mb-5">Shopping cart</h2>
+        <div class="col-7">
+        <table class="table table-bordered border-1 border-success shadow text-center">
+            <tr><th colspan="6">cart items</th></tr>
+            {% for i in cart %}
+            <tr>
+                <td><img src="{{i.product.image.url}}" height="100px" width="100px"></td>
+                <td>{{i.product.name}}</td>
+                <td>unit price:{{i.product.price}}<br>
+                Qantity:{{i.quantity}}</td>
+                <td>totalprice:{{i.subtotal}}</td>
+                <td class="p-1">
+                    {% if i.product.stock > 0 %}
+                    <a href="{% url 'cart:cart' i.product.id %}"><i class="fas fa-plus text-dark"></i></a>
+                    <a href="{% url 'cart:cart_remove' i.product.id %}"><i class="fas fa-minus text-dark"></i></a>
+                    <a href="{% url 'cart:cart_delete' i.product.id %}"><i class="fas fa-trash text-dark"></i></a></td>
+                 {% else %}
+                <a href="{% url 'cart:cart_remove' i.product.id %}"><i class="fas fa-minus text-dark"></i></a>
+                    <a href="{% url 'cart:cart_delete' i.product.id %}"><i class="fas fa-trash text-dark"></i></a></td>
+               {% endif %}
+
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="col-4">
+        <table class="table table-bordered border-1 border-success">
+        <tr colspan="4">
+            <th>check out</th>
+
+        </tr>
+            <tr class="text-center">
+                <td>Total price:{{total}}</td>
+  </tr>
+            </table>
+
+           <div class="d-flex justify-content-between">
+             <a href="{% url 'cart:orderform' %}" class="btn btn-success text-center">order now</a>
+              <a href="{% url 'shop:categories' %}" class="btn btn-success text-center">continue shopping</a></div>
+
+    </div>
+
+</div>
+</div>
+{% endblock %}

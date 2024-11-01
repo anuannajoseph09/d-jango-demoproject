@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<h1>add category</h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+  <label class="form-label">category name</label>
+  <input type="text" class="form-control" name="t" placeholder="Enter the category name">
+</div>
+       <div class="mb-3">
+  <label class="form-label">description</label>
+  <input type="text" class="form-control"  name="a" placeholder="Enter the description">
+</div>
+
+
+    <div class="mb-3">
+  <label class="form-label">category image</label>
+  <input type="file" class="form-control"  name="i">
+</div>
+
+
+   <div class="mb-3">
+       <input type="submit" value="ADD">
+   </div>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

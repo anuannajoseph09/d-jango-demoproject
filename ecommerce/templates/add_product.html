@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<h1>add product</h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+  <label class="form-label">product name</label>
+  <input type="text" class="form-control" name="n" placeholder="Enter the product name">
+</div>
+       <div class="mb-3">
+  <label class="form-label">description</label>
+  <input type="text" class="form-control"  name="d" placeholder="Enter the description">
+</div>
+   <div class="mb-3">
+  <label class="form-label">price</label>
+  <input type="number" class="form-control"  name="p" placeholder="Enter the price">
+</div>
+   <div class="mb-3">
+  <label class="form-label">add stock</label>
+  <input type="number" class="form-control"  name="a" placeholder="enter the no of items">
+</div>
+      <select class="form-select" aria-label="Default select example" name="c">
+      <option>category</option>
+          {% for i in links %}
+            <option value="{{i.id}}">{{ i.name }}</option>
+           {% endfor %}
+</select>
+    <div class="mb-3">
+  <label class="form-label">product image</label>
+  <input type="file" class="form-control"  name="i">
+</div>
+
+
+   <div class="mb-3">
+       <input type="submit" value="ADD">
+   </div>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
