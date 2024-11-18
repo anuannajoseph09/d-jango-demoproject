@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <h1>view users</h1>
+<ol>
+    {% for i in user %}
+    <li>
+        <ul>
+            <li>name:{{i.name}}</li>
+            <li>age:{{i.age}}</li>
+            <li>place:{{i.place}}</li>
+            <li>gender:{{i.gender}}</li>
+            <li>email{{i.email}}</li>
+        </ul>
+    </li>
+    {% endfor %}
+
+</ol>
+{% endblock %}

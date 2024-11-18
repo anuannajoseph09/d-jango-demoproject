@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>view employee</h1>
+<table class="table table-bordered bg-light">
+    <tr>
+        <th>COVER</th>
+
+        <th>name</th>
+        <th>age</th>
+        <th>address</th>
+        <th>email</th>
+
+        <th>view</th>
+        <th>edit</th>
+        <th>delete</th>
+    </tr>
+    {% for i in emp %}
+    <tr>
+        <td><img src="{{i.image.url}}"></td>
+
+        <td>{{i.name}}</td>
+        <td>{{i.age}}</td>
+        <td>{{i.address}}</td>
+        <td>{{i.email}}</td>
+
+        <td><a href="{% url 'emp:detail' i.id %}" class="btn btn-success">view</a></td>
+        <td><a href="{% url 'emp:edit' i.id %}" class="btn btn-success">edit</a></td>
+        <td><a href="{% url 'emp:delete' i.id %}" class="btn btn-success">delete</a></td>
+
+
+
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

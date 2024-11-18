@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+{{form}}
+        </table>
+    <h2>are you sure u want to delete?</h2>
+    <input type="Delete">
+</form>
+
+
+{% endblock %}

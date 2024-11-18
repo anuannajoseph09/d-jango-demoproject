@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+<!--<a href="{% url 'books:home' %}">Home</a>-->
+<!--<a href="{% url 'books:add' %}">Add books</a>-->
+<!--<a href="{% url 'books:view' %}">View books</a>-->
+<!--<a href="{% url 'users:register' %}">Register</a>-->
+<!--<a href="{% url 'users:login' %}">Login</a>-->
+<!--<a href="{% url 'users:logout'% }">Logout</a>-->
+{% block content %}
+{% if user.is_authenticated %}
+<h2 class="text-center text-light mt-3">welcome {{user.username}}</h2>
+{% endif %}
+
+{% endblock %}

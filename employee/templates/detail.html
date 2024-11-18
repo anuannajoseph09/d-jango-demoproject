@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="card mb-3 mt-3 mx-auto" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4 me-6">
+      <img src="{{emp.image.url}}" class="rounded-start p-3" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body text-success">
+
+        <p class="card-text">name : {{emp.name}}</p>
+        <p class="card-text">age: {{emp.age}}</p>
+          <p class="card-text">address : {{emp.address}}</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
